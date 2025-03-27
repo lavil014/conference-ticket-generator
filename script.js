@@ -7,15 +7,21 @@ const btn = document.querySelector('button');
 
 
 
-dropArea.addEventListener('click', (e)=> {
+dropArea.addEventListener('click', ()=> {
     avatar.click()
-    console.log(e.target);
-    console.log(avatar.value);
 });
 
-dropArea.addEventListener('drop', (e)=>{
-    
-    let userData = e.dataTransfer.files[0];
+dropArea.addEventListener('dragover', ()=>{
+    dropArea.classList.add('drag-area');
+    console.log('Dragover');
+})
 
-    console.log(userData);
+dropArea.addEventListener('dragleave', ()=>{
+    dropArea.classList.remove('drag-area');
+    console.log('Dragleave');
+})
+
+dropArea.addEventListener('drop', (event)=>{
+    event.preventDefault();
+    console.log('Drop');
 })

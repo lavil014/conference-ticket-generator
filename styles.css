@@ -53,6 +53,13 @@ form{
   opacity: 0.5;
 }
 
+.drag-area{
+  border: dashed rgb(69, 69, 216);
+  background-color: rgb(211, 201, 201);
+  color: rgb(69, 69, 216);
+  font-weight: 700;
+}
+
 .drag-drop-area img{
   border: solid 0.01rem;
   opacity: 0.5;
