@@ -24,4 +24,5 @@ dropArea.addEventListener('dragleave', ()=>{
 dropArea.addEventListener('drop', (event)=>{
     event.preventDefault();
     console.log('Drop');
+    console.log(event);
 })
