@@ -11,18 +11,27 @@ dropArea.addEventListener('click', ()=> {
     avatar.click()
 });
 
-dropArea.addEventListener('dragover', ()=>{
+dropArea.addEventListener('dragover', (event)=>{
+
+    event.preventDefault()
+
     dropArea.classList.add('drag-area');
-    console.log('Dragover');
+    
 })
 
 dropArea.addEventListener('dragleave', ()=>{
     dropArea.classList.remove('drag-area');
-    console.log('Dragleave');
+    
 })
 
 dropArea.addEventListener('drop', (event)=>{
-    event.preventDefault();
-    console.log('Drop');
-    console.log(event);
+    event.preventDefault()
+
+    let files = event.dataTransfer.files;
+
+    if(files.length > 1){
+        console.log('You can only add one avatar')
+    } else{
+        console.log('Your avatar has been added succesfully');
+    }    
 })
