@@ -6,10 +6,27 @@ const githubUser = document.getElementById('githubUser');
 const btn = document.querySelector('button');
 
 
+const events = {
+    click : 'click',
+    drop : 'drop',
+    dragover : 'dragover',
+    dragleave : 'dragleave'
+}
 
-dropArea.addEventListener('click', ()=> {
+
+const {click, drop, dragleave, dragover} = events;
+
+
+dropArea.addEventListener('click', (event)=> {
     avatar.click()
 });
+
+dropArea.addEventListener('change', (event)=>{
+
+    let files = event.target.files;
+
+    
+})
 
 dropArea.addEventListener('dragover', (event)=>{
 
@@ -35,3 +52,6 @@ dropArea.addEventListener('drop', (event)=>{
         console.log('Your avatar has been added succesfully');
     }    
 })
+
+
+
