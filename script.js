@@ -5,8 +5,7 @@ const inputs = document.querySelectorAll('input');
 const btn = document.querySelector('button');
 
 
-
-
+/*
 dropArea.addEventListener('click', ()=> {
     avatar.click()
 });
@@ -53,15 +52,25 @@ dropArea.addEventListener('drop', (event)=>{
     }    
 })
 
+*/ 
 
-inputs.forEach((input)=>{
-    input.addEventListener('change', ()=>{
+form.addEventListener('submit',(e)=>{
 
-        let inputInfo = input.value.trim();
-        
-        console.log(inputInfo);
+    e.preventDefault()
+
+    inputs.forEach((input)=>{
+        input.addEventListener('change', ()=>{
+    
+            let inputInfo = input.value.trim();
+            
+            console.log(inputInfo);
+        })
     })
+    
+
+    console.log('form has been submited')
 })
+
 
 
 
