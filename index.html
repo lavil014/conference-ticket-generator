@@ -28,10 +28,11 @@
           <input type="file" id="avatar" accept="image/*">
           <p> Drag and drop or click to upload</p>
         </div>
+        
         <span>Upload your photo(JPG or PNG, max size: 500KB)</span>
       </div>
-      <label for="" id="userName">Full Name</label>
-      <input type="text">
+      <label for="">Full Name</label>
+      <input type="text" id="userName">
       <label for="">Email Address</label>
       <input type="email" id="userEmail" placeholder="example@emal.com">
       <label for="">Github Username</label>
@@ -41,21 +42,21 @@
   </section>
   <section class="ticket-section">
     <div class="ticket-information">
-      <p>Congrats, Jonatham <br>
-      Kristoff! Your ticket is <br>
+      <p>Congrats, <span id="user-full-name">Jonatham Kristoff!</span> <br>
+       Your ticket is <br>
       ready.
       </p>
       <p>We've emailed your ticket to <br>
-        jonathan@email.com and will send <br>
+        <span id="user-email-address">jonathan@email.com</span> and will send <br>
         updates in the run up to the event.</p>
     </div> 
     <div class="user-information">
-      <span>Jan 31, 2025 / Austin, TX</span>
+      <span id="ticket-date">Jan 31, 2025 / Austin, TX</span>
       <div>
         <img src="" alt="">
         <div>
-          <p>Jonathan Kristoff</p>
-          <img src="/assets/images/icon-github.svg" alt=""> <p>@jonathankristoff0101</p>
+          <span id="user-full-name">Jonatham Kristoff!</span>
+          <img src="/assets/images/icon-github.svg" alt=""> <span id="user-email-address">jonathan@email.com</span>
         </div>
       </div>
       
