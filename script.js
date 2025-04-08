@@ -58,14 +58,6 @@ form.addEventListener('submit',(e)=>{
 
     e.preventDefault()
 
-    inputs.forEach((input)=>{
-        input.addEventListener('change', ()=>{
-    
-            let inputInfo = input.value.trim();
-            
-            console.log(inputInfo);
-        })
-    })
     
 
     console.log('form has been submited')
@@ -73,4 +65,13 @@ form.addEventListener('submit',(e)=>{
 
 
 
+
+inputs.forEach((input)=>{
+    input.addEventListener('change', ()=>{
+
+        let inputInfo = input.value.trim();
+        
+        console.log(inputInfo);
+    })
+})
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      body{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        height: 100dvh;
+      }
+
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        border: solid;
+        padding: 1rem;
+        border-radius: 0.5rem;
+      }
+
+      .card{
+        display: flex;
+        flex-direction: column;
+        border: solid;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+      }
+
+    </style>
+</head>
+<body>
+  <form action="">
+    <label for="name">Nombre</label>
+    <input id="nameInput" type="text">
+    
+    <label for="name">Email</label>
+    <input id="emailInput" type="email">
+    
+    <label for="name">Github</label>
+    <input id="githubInput" type="text">
+
+    <button type="submit">Submit</button>
+  </form>
+
+
+  <section class="card">
+    <p>
+      Congrats, <span id="user-name"></span> <br>
+      Your ticket is ready.
+      </p>
+      <p>
+        We've emailed your ticket to <br>
+          <span id="user-email-address"></span> and will send <br>
+          updates in the run up to the event.
+      </p>
+    
+      <div>
+        <span id="user-name-displayed"></span>
+        <img src="/assets/images/icon-github.svg" alt=""> <span id="githubUserName"></span>
+      </div>
+  </section>
+
+  <script src="/form.js"></script>
+</body>
+</html>
