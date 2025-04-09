@@ -31,6 +31,12 @@
         padding: 0.5rem;
       }
 
+      img{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+      }
+
     </style>
 </head>
 <body>
@@ -46,8 +52,6 @@
 
     <button type="submit">Submit</button>
   </form>
-
-
   <section class="card">
     <p>
       Congrats, <span id="user-name"></span> <br>
@@ -64,6 +68,14 @@
         <img src="/assets/images/icon-github.svg" alt=""> <span id="githubUserName"></span>
       </div>
   </section>
+
+  <form action="">
+    <h1></h1>
+    <input id="fileInput" type="file">
+    <div id="message"> This is the message</div>
+    <img src="" id="previewImage" alt="Image uploaded by the user">
+    <pre id="file-content"> This is the preview </pre>
+  </form>
 
   <script src="/form.js"></script>
 </body>

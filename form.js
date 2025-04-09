@@ -13,11 +13,38 @@ form.addEventListener('submit', (e)=>{
     let github = document.getElementById('githubInput').value;
 
 
-   
-
     userfullName.textContent = userName;
     displayeduserName.textContent = userName;
     useremailAddress.textContent = email;
     githubUser.textContent = github;
 
 })
+
+
+const imageInput = document.getElementById('fileInput');
+const message = document.getElementById('message');
+const preview = document.getElementById('file-content');
+const previewImage = document.getElementById('previewImage');
+
+imageInput.addEventListener('change',(e)=>{
+    let file = imageInput.files[0];
+    let reader = new FileReader()
+    
+    
+    reader.onload = ()=>{
+        previewImage.src=reader.result;
+        preview.textContent = 'Your image has been uploaded succesfully'
+        console.log(reader);
+
+    }
+
+    reader.error = ()=>{
+        console.error('There was an error while uploading your image');
+    }
+
+    if(file){
+        reader.readAsDataURL(file);
+    }
+
+})
+
