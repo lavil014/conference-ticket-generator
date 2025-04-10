@@ -11,6 +11,7 @@ form.addEventListener('submit', (e)=>{
     let userName = document.getElementById('nameInput').value;
     let email= document.getElementById('emailInput').value;
     let github = document.getElementById('githubInput').value;
+    
 
 
     userfullName.textContent = userName;
@@ -20,11 +21,28 @@ form.addEventListener('submit', (e)=>{
 
 })
 
-
+const dropArea = document.getElementById('drop-area');
 const imageInput = document.getElementById('fileInput');
 const message = document.getElementById('message');
 const preview = document.getElementById('file-content');
 const previewImage = document.getElementById('previewImage');
+const events = ['dragleave','dragover','dragenter','drop'];
+
+
+
+dropArea.addEventListener('click', ()=>{
+    imageInput.click();
+})
+
+events.forEach((event)=>{
+    dropArea.addEventListener(event,(e)=>{
+        
+        e.preventDefault();
+        e.stopPropagation();
+        console.log(e.target); 
+
+    })
+})
 
 imageInput.addEventListener('change',(e)=>{
     let file = imageInput.files[0];
@@ -48,3 +66,14 @@ imageInput.addEventListener('change',(e)=>{
 
 })
 
+
+
+const readFile = (inputTag,e)=>{
+
+    let file = inputTag.files[0];
+    let reader = new FileReader();
+
+    reader.onload = ()=>{
+        
+    }
+}

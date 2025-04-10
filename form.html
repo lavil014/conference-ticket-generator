@@ -37,6 +37,18 @@
         border-radius: 50%;
       }
 
+      .drop-area{
+        border: dashed;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+
+      .drop-area:hover{
+        border: dashed green;
+        color: green;
+      }
+
     </style>
 </head>
 <body>
@@ -70,8 +82,12 @@
   </section>
 
   <form action="">
-    <h1></h1>
-    <input id="fileInput" type="file">
+   
+    <div class="drop-area" id="drop-area">
+      <input id="fileInput" accept="image/*" type="file" hidden>
+      <p>Click, drag or drop your file here</p>
+    </div> 
+
     <div id="message"> This is the message</div>
     <img src="" id="previewImage" alt="Image uploaded by the user">
     <pre id="file-content"> This is the preview </pre>
