@@ -53,6 +53,11 @@
 </head>
 <body>
   <form action="">
+
+    <div class="drop-area" id="drop-area">
+      <input id="fileInput" accept="image/*" type="file" hidden>
+      <p>Click, drag or drop your file here</p>
+    </div> 
     <label for="name">Nombre</label>
     <input id="nameInput" type="text">
     
@@ -77,10 +82,13 @@
     
       <div>
         <span id="user-name-displayed"></span>
+        <img src="" id="previewImage" alt="Image uploaded by the user">
         <img src="/assets/images/icon-github.svg" alt=""> <span id="githubUserName"></span>
       </div>
   </section>
 
+
+  <!--  
   <form action="">
    
     <div class="drop-area" id="drop-area">
@@ -92,6 +100,7 @@
     <img src="" id="previewImage" alt="Image uploaded by the user">
     <pre id="file-content"> This is the preview </pre>
   </form>
+  -->
 
   <script src="/form.js"></script>
 </body>

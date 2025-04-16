@@ -28,7 +28,20 @@ const preview = document.getElementById('file-content');
 const previewImage = document.getElementById('previewImage');
 const events = ['dragleave','dragover','dragenter','drop'];
 
+const displayImage = (file)=>{
+    
+    if(file && file.type.startsWith('image/')){
+        let reader = new FileReader();
 
+        reader.onload = ()=>{
+            previewImage.src = reader.result;
+        }
+    } else{
+        console.error('Select a valid image');
+    }
+    
+
+}
 
 dropArea.addEventListener('click', ()=>{
     imageInput.click();
@@ -39,8 +52,9 @@ events.forEach((event)=>{
         
         e.preventDefault();
         e.stopPropagation();
-        console.log(e.target); 
 
+        
+        
     })
 })
 
@@ -51,7 +65,7 @@ imageInput.addEventListener('change',(e)=>{
     
     reader.onload = ()=>{
         previewImage.src=reader.result;
-        preview.textContent = 'Your image has been uploaded succesfully'
+        //preview.textContent = 'Your image has been uploaded succesfully'
         console.log(reader);
 
     }
@@ -68,12 +82,77 @@ imageInput.addEventListener('change',(e)=>{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+const messages = {
+    success : 'Your image has been uploaded succesfully',
+    errorMessage : 'There was an error while uploading your image'
+}
+
 const readFile = (inputTag,e)=>{
 
     let file = inputTag.files[0];
     let reader = new FileReader();
 
     reader.onload = ()=>{
-        
+        previewImage.src = reader.result;
+        preview.textContent = messages.success;
+    }
+
+    reader.error = ()=>{
+        console.error(messages.errorMessage);
+    }
+
+
+    if(file){
+        reader.readAsDataURL(file);
     }
 }
+
+console.log(readFile)
+
+*/
