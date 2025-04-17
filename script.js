@@ -1,77 +1,16 @@
-const form = document.querySelector('form');
-const dropArea = document.querySelector('.drag-drop-area');
-const avatar = document.getElementById('avatar');
-const inputs = document.querySelectorAll('input');
-const btn = document.querySelector('button');
+const tags = {
+    form : document.querySelector('form'),
+    dropArea : document.getElementById(''),
+    imageInput : document.getElementById(''),
+    fullName: document.getElementById('userName'),
+    userEmail: document.getElementById('userEmail'),
+    userGitHub: document.getElementById('githubUser'),
+    submitBtn : document.querySelector('button'),
+    userFullName: document.getElementById('user-full-name'),
+    userEmailAddress :document.getElementById('user-email-address'),
+    gitHubUserNickName : document.getElementById('user-github"'),
+    avatar : document.getElementById('avatar')
+}
 
-
-/*
-dropArea.addEventListener('click', ()=> {
-    avatar.click()
-});
-
-avatar.addEventListener('change', (event)=>{
-
-    let files = event.target.files[0];
-
-    if(files.length > 1){
-        console.log('You can only add one avatar')
-    } else{
-        console.log('Your avatar has been added succesfully');
-        avatar.files = files;
-        previewImage(files);
-
-    }  
-})
-
-dropArea.addEventListener('dragover', (event)=>{
-
-    event.preventDefault()
-
-    dropArea.classList.add('drag-area');
-    
-})
-
-dropArea.addEventListener('dragleave', ()=>{
-    dropArea.classList.remove('drag-area');
-})
-
-dropArea.addEventListener('drop', (event)=>{
-    event.preventDefault()
-
-    let files = event.dataTransfer.files[0];
-
-    const {name} = files;
-
-    console.log(name);
-
-    if(files.length > 1){
-        console.log('You can only add one avatar')
-    } else{
-        console.log('Your avatar has been added succesfully');
-    }    
-})
-
-*/ 
-
-form.addEventListener('submit',(e)=>{
-
-    e.preventDefault()
-
-    
-
-    console.log('form has been submited')
-})
-
-
-
-
-inputs.forEach((input)=>{
-    input.addEventListener('change', ()=>{
-
-        let inputInfo = input.value.trim();
-        
-        console.log(inputInfo);
-    })
-})
+const {form, dropArea ,imageInput , fullName, userEmail, userGitHub, submitBtn,userFullName, userEmailAddress, gitHubUserNickName, avatar } = tags;
 

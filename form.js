@@ -3,6 +3,13 @@ const userfullName = document.getElementById('user-name');
 const useremailAddress = document.getElementById('user-email-address');
 const githubUser = document.getElementById('githubUserName');
 const displayeduserName = document.getElementById('user-name-displayed')
+const cardInformation = document.getElementById('card-information');
+const dropArea = document.getElementById('drop-area');
+const imageInput = document.getElementById('fileInput');
+const message = document.getElementById('message');
+const preview = document.getElementById('file-content');
+const previewImage = document.getElementById('previewImage');
+const events = ['dragleave','dragover','dragenter','drop'];
 
 form.addEventListener('submit', (e)=>{
 
@@ -18,29 +25,26 @@ form.addEventListener('submit', (e)=>{
     displayeduserName.textContent = userName;
     useremailAddress.textContent = email;
     githubUser.textContent = github;
+    cardInformation.style.display = 'flex'
 
 })
 
-const dropArea = document.getElementById('drop-area');
-const imageInput = document.getElementById('fileInput');
-const message = document.getElementById('message');
-const preview = document.getElementById('file-content');
-const previewImage = document.getElementById('previewImage');
-const events = ['dragleave','dragover','dragenter','drop'];
+
 
 const displayImage = (file)=>{
-    
-    if(file && file.type.startsWith('image/')){
-        let reader = new FileReader();
 
+    if(file && file.type.startsWith("image/")){
+        let reader = new FileReader();
         reader.onload = ()=>{
             previewImage.src = reader.result;
         }
-    } else{
+        reader.readAsDataURL(file);
+
+        return
+    } 
+    else{
         console.error('Select a valid image');
     }
-    
-
 }
 
 dropArea.addEventListener('click', ()=>{
@@ -53,6 +57,10 @@ events.forEach((event)=>{
         e.preventDefault();
         e.stopPropagation();
 
+        if(event === 'drop'){
+            let file = e.dataTransfer.files[0];
+            displayImage(file);
+        }
         
         
     })
@@ -60,24 +68,8 @@ events.forEach((event)=>{
 
 imageInput.addEventListener('change',(e)=>{
     let file = imageInput.files[0];
-    let reader = new FileReader()
     
-    
-    reader.onload = ()=>{
-        previewImage.src=reader.result;
-        //preview.textContent = 'Your image has been uploaded succesfully'
-        console.log(reader);
-
-    }
-
-    reader.error = ()=>{
-        console.error('There was an error while uploading your image');
-    }
-
-    if(file){
-        reader.readAsDataURL(file);
-    }
-
+    displayImage(file);
 })
 
 

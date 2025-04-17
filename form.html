@@ -29,6 +29,7 @@
         border: solid;
         border-radius: 0.5rem;
         padding: 0.5rem;
+        display: none;
       }
 
       img{
@@ -56,7 +57,7 @@
 
     <div class="drop-area" id="drop-area">
       <input id="fileInput" accept="image/*" type="file" hidden>
-      <p>Click, drag or drop your file here</p>
+      <p>Click, drag or drop your file here</p> 
     </div> 
     <label for="name">Nombre</label>
     <input id="nameInput" type="text">
@@ -69,7 +70,7 @@
 
     <button type="submit">Submit</button>
   </form>
-  <section class="card">
+  <section id="card-information" class="card">
     <p>
       Congrats, <span id="user-name"></span> <br>
       Your ticket is ready.
