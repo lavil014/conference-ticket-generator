@@ -19,3 +19,10 @@ const tags = {
 }
 
 const {form, dropArea ,imageInput , fullName, userEmail, userGitHub, submitBtn,userFullName, userEmailAddress, gitHubUserNickName, avatar, avatarImage, events, formSection, ticketSection, backHomeBtn } = tags;
+
+import { resetForm , submitForm } from "./formHandler.js";
+import { displayImage, inputToClick,changeInputImage,eventHandlers } from "./imageHandler.js"; 
+import { updateUI } from "./ui.js";
+
+
+console.log(resetForm, submitForm);
