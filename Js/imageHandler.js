@@ -1,3 +1,10 @@
+const imageInput = document.getElementById('avatar');
+const events = ['dragleave','dragover','dragenter','drop'];
+const dropArea = document.getElementById('dropArea');
+
+
+
+
 export const displayImage = (file)=>{
     
   if(file && file.type.startsWith('image/')){
@@ -6,13 +13,15 @@ export const displayImage = (file)=>{
       
       reader.onload = ()=>{
         avatarImage.src = reader.result;
-        imageUploaded = true
       }
         
       reader.readAsDataURL(file);
+
+      return true;
         
   } else{
       alert('Select an image');
+      return false;
   }
 
 }
@@ -28,7 +37,7 @@ export const changeInputImage = ()=>{
     
     let file = imageInput.files[0]; 
     
-    displayImage(file);
+    isImageUploaded =  displayImage(file);
   })
 }
 
@@ -43,9 +52,10 @@ export const eventHandlers = ()=>{
         if(event === 'drop'){
             let file = e.dataTransfer.files[0];
 
-            displayImage(file);
+           isImageUploaded =  displayImage(file);
         }
         
     })
   })
 }
+

@@ -18,11 +18,46 @@ const tags = {
     backHomeBtn: document.getElementById('backHome'), 
 }
 
+let isImageUploaded = false;
+
 const {form, dropArea ,imageInput , fullName, userEmail, userGitHub, submitBtn,userFullName, userEmailAddress, gitHubUserNickName, avatar, avatarImage, events, formSection, ticketSection, backHomeBtn } = tags;
 
-import { resetForm , submitForm } from "./formHandler.js";
+
+import { resetForm } from "./formHandler.js";
 import { displayImage, inputToClick,changeInputImage,eventHandlers } from "./imageHandler.js"; 
 import { updateUI } from "./ui.js";
 
 
-console.log(resetForm, submitForm);
+const submitForm = (e)=>{
+  
+    e.preventDefault();
+
+        if(!isImageUploaded){
+            alert('Add a valid Imagge'); 
+
+            return;
+        }
+  
+        //Get user's data from imputs
+        let submitedName = fullName.value.trim();
+        let submitedEmail = userEmail.value.trim();
+        let submiteduserGitHub = userGitHub.value.trim();
+        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+        if(submitedName === ''){
+          alert('Information is incomplete, provide a valid name');
+        } else if(!emailRegex.test(submitedEmail)){
+          alert('Your email address is invalid');
+        } else if(submiteduserGitHub === ''){
+          alert('Provide a valid username');
+        } else{
+          updateUI(userEmailAddress,userFullName,gitHubUserNickName,formSection,ticketSection);
+        }
+  
+        resetForm(form,userEmailAddress,userFullName,gitHubUserNickName,imageUploaded);
+  
+  }
+
+form.addEventListener('submit',submitForm);
+
+

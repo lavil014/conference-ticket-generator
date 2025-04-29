@@ -1,4 +1,4 @@
-export const updateUI = ()=>{
+export const updateUI = (userEmailAddress,userFullName,gitHubUserNickName,formSection,ticketSection)=>{
   userEmailAddress.textContent = submitedEmail;
   userFullName.textContent = submitedName;
   gitHubUserNickName.textContent = submiteduserGitHub;
