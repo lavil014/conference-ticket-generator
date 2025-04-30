@@ -1,11 +1,8 @@
-
-
-export const resetForm = (form,userEmailAddress,userFullName,gitHubUserNickName,imageUploaded)=>{
+export const resetForm = (form,submitedEmail,submitedName,submiteduserGitHub)=> {
+    
   form.reset();
-
-    userEmailAddress.value = "";
-    userFullName.value = "";
-    gitHubUserNickName.value = "";
-    imageUploaded = false;
+  submitedEmail.value = '';
+  submitedName.value = '';
+  submiteduserGitHub.value = '';
+  isImageUploaded = false; 
 }
-

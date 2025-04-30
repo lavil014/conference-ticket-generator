@@ -1,63 +1,73 @@
-const tags = {
-    form : document.querySelector('form'),
-    dropArea : document.getElementById('dropArea'),
-    imageInput : document.getElementById('avatar'),
-    fullName: document.getElementById('userName'),
-    userEmail: document.getElementById('userEmail'),
-    userGitHub: document.getElementById('githubUser'),
-    submitBtn : document.querySelector('button'),
-    userFullName: document.getElementById('user-full-name'),
-    newUserName: document.querySelectorAll('span')[5],
-    userEmailAddress :document.getElementById('user-email-address'),
-    gitHubUserNickName : document.getElementById('user-github'),
-    avatar : document.getElementById('avatar'),
-    avatarImage : document.getElementById('avatarImage'), 
-    events : ['dragleave','dragover','dragenter','drop'],
-    formSection : document.getElementById('classSection'),
-    ticketSection : document.getElementById('ticketSection'),
-    backHomeBtn: document.getElementById('backHome'), 
-}
+import {tags} from './tags.js';
+import { resetForm } from './formHandler.js';
+import { updateUI } from './ui.js';
 
-let isImageUploaded = false;
+
+
 
 const {form, dropArea ,imageInput , fullName, userEmail, userGitHub, submitBtn,userFullName, userEmailAddress, gitHubUserNickName, avatar, avatarImage, events, formSection, ticketSection, backHomeBtn } = tags;
 
+let isImageUploaded = false;
 
-import { resetForm } from "./formHandler.js";
-import { displayImage, inputToClick,changeInputImage,eventHandlers } from "./imageHandler.js"; 
-import { updateUI } from "./ui.js";
 
 
 const submitForm = (e)=>{
+  e.preventDefault();
   
-    e.preventDefault();
+  //Get user's data from inputs
+  let submitedName = fullName.value.trim();
+  let submitedEmail = userEmail.value.trim();
+  let submiteduserGitHub = userGitHub.value.trim();
 
-        if(!isImageUploaded){
-            alert('Add a valid Imagge'); 
+  //Validate is imageInput is empty
+  if(!isImageUploaded){
+    alert('Add a valid Image');
 
-            return;
-        }
+    return;
+  }
+
+  if (submitedName === ''){
+    alert('Information is incomplete, provide a valid name');  
+    } else if(!emailRegex.test(submitedEmail)){
+        alert('Your email address is invalid')
+    } else if(submiteduserGitHub === ''){
+        alert('Provide a valid username');
+    } else{
+        //Update UI
+        updateUI(userEmailAddress,userFullName,submiteduserGitHub,formSection,ticketSection);
+    }
+
+  resetForm(form,submitedEmail,submitedName,submiteduserGitHub);
+
+}
+
+dropArea.addEventListener('click', ()=>{
+  imageInput.click();
+})
+
+const displayImage = ()=>{
   
-        //Get user's data from imputs
-        let submitedName = fullName.value.trim();
-        let submitedEmail = userEmail.value.trim();
-        let submiteduserGitHub = userGitHub.value.trim();
-        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  
-        if(submitedName === ''){
-          alert('Information is incomplete, provide a valid name');
-        } else if(!emailRegex.test(submitedEmail)){
-          alert('Your email address is invalid');
-        } else if(submiteduserGitHub === ''){
-          alert('Provide a valid username');
-        } else{
-          updateUI(userEmailAddress,userFullName,gitHubUserNickName,formSection,ticketSection);
-        }
-  
-        resetForm(form,userEmailAddress,userFullName,gitHubUserNickName,imageUploaded);
+  let file = imageInput.files[0];
+
+  if(file && file.type.startsWith('/image')){
+    let reader = new FileReader();
+
+    reader.onload = ()=>{
+      avatarImage.src = reader.result;
+    }
+
+    reader.readAsDataURL(file);
   
   }
 
-form.addEventListener('submit',submitForm);
+  
+  
+
+ 
+}
 
 
+
+console.log(displayImage)
+
+form.addEventListener('submit', submitForm);
