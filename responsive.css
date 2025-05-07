@@ -16,6 +16,9 @@
 
 body{
     background-image: url(/assets/images/background-mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: var(--Neutral0);
     font-family:"Inconsolata",sans-serif;
 }
